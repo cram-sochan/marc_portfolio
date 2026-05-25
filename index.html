@@ -857,32 +857,9 @@
     .project-card:nth-child(6) { animation-delay: 0.5s; }
 
     .project-card:hover {
-      transform: translateY(-12px);
-      box-shadow: var(--shadow-xl);
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
       border-color: rgba(102, 126, 234, 0.3);
-    }
-
-    .project-image {
-      width: 100%;
-      min-height: 240px;
-      background: var(--gradient-subtle);
-      overflow: hidden;
-      position: relative;
-      display: block;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-
-    .project-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform var(--transition), filter var(--transition);
-    }
-
-    .project-card:hover .project-image img {
-      transform: scale(1.05);
-      filter: brightness(1.04);
     }
 
     .project-content {
@@ -944,7 +921,6 @@
     .project-links {
       display: flex;
       gap: 0.75rem;
-      margin-top: auto;
     }
 
     .project-links .btn {
@@ -1757,56 +1733,33 @@
         <div class="projects-grid">
           <!-- Project 1 -->
           <div class="project-card">
-            <div class="project-image"><img src="assets/portfolio2.png" alt="Portfolio website preview" loading="lazy"></div>
             <div class="project-content">
-              <div class="project-category">Web Design</div>
               <h3 class="project-title">Portfolio Website</h3>
               <p class="project-description">A modern, responsive portfolio showcasing design and development skills with smooth animations and dark mode support.</p>
-              <div class="project-tech">
-                <span class="tech-tag">HTML</span>
-                <span class="tech-tag">CSS</span>
-                <span class="tech-tag">JavaScript</span>
-              </div>
               <div class="project-links">
-                <a href="#" class="btn btn-sm btn-outline view-project-btn" data-image-src="assets/portfolio.png" data-image-alt="Portfolio website preview" data-project-title="Portfolio Website">View Project</a>
+                <a href="#" class="btn btn-sm btn-outline" target="_blank" rel="noopener noreferrer">View Project</a>
               </div>
             </div>
           </div>
 
           <!-- Project 2 -->
           <div class="project-card">
-            <div class="project-image"><img src="assets/project-immunization.svg" alt="Immunization monitoring system preview" loading="lazy"></div>
             <div class="project-content">
-              <div class="project-category">Backend</div>
               <h3 class="project-title">Infant and Prenatal Immunization Monitoring System with Statistical Analysis</h3>
               <p class="project-description">A healthcare system for monitoring infant and prenatal immunization records with statistical reporting and data analysis.</p>
-              <div class="project-tech">
-                <span class="tech-tag">PHP</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">MySQL</span>
-              </div>
               <div class="project-links">
-                <a href="#" class="btn btn-sm btn-outline view-project-btn" data-image-src="assets/project-immunization.svg" data-image-alt="Immunization monitoring system preview" data-project-title="Infant and Prenatal Immunization Monitoring System">View Project</a>
+                <a href="#" class="btn btn-sm btn-outline" target="_blank" rel="noopener noreferrer">View Project</a>
               </div>
             </div>
           </div>
 
           <!-- Project 3 -->
           <div class="project-card">
-            <div class="project-image"><img src="assets/qr2.png" alt="Inventory system preview" loading="lazy"></div>
             <div class="project-content">
-              <div class="project-category">Frontend & Backend</div>
               <h3 class="project-title">Online QR-Based Inventory System</h3>
               <p class="project-description">Real-time inventory system that uses QR codes for efficient item tracking, monitoring, and inventory control.</p>
-              <div class="project-tech">
-               <span class="tech-tag">PHP</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">HTML</span>
-                <span class="tech-tag">CSS</span>
-              </div>
               <div class="project-links">
-                <a href="#" class="btn btn-sm btn-outline view-project-btn" data-image-src="assets/qr2.png" data-image-alt="Inventory system preview" data-project-title="Online QR-Based Inventory System">View Project</a>
+                <a href="#" class="btn btn-sm btn-outline" target="_blank" rel="noopener noreferrer">View Project</a>
               </div>
             </div>
           </div>
@@ -1829,16 +1782,6 @@
             </div>
           </div> -->
 
-        </div>
-
-        <div class="project-modal-overlay" aria-hidden="true">
-          <div class="project-modal" role="dialog" aria-modal="true" aria-label="Project preview">
-            <button type="button" class="project-modal-close" aria-label="Close project preview">×</button>
-            <div class="project-modal-inner">
-              <img class="project-modal-image" src="" alt="" loading="lazy">
-              <p class="project-modal-caption"></p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -2110,57 +2053,8 @@
       }
     });
 
-    // ===== Project Modal Viewer =====
-    const projectModalOverlay = document.querySelector('.project-modal-overlay');
-    const projectModalImage = document.querySelector('.project-modal-image');
-    const projectModalCaption = document.querySelector('.project-modal-caption');
-    const projectModalClose = document.querySelector('.project-modal-close');
-    const projectButtons = document.querySelectorAll('.view-project-btn');
-
-    function openProjectModal(src, alt, title) {
-      projectModalImage.src = src;
-      projectModalImage.alt = alt;
-      projectModalCaption.textContent = title;
-      projectModalOverlay.classList.add('open');
-      projectModalOverlay.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('modal-open');
-    }
-
-    function closeProjectModal() {
-      projectModalOverlay.classList.remove('open');
-      projectModalOverlay.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('modal-open');
-      setTimeout(() => {
-        projectModalImage.src = '';
-        projectModalImage.alt = '';
-        projectModalCaption.textContent = '';
-      }, 300);
-    }
-
-    projectButtons.forEach((button) => {
-      button.addEventListener('click', (event) => {
-        event.preventDefault();
-        const imageSrc = button.dataset.imageSrc;
-        const imageAlt = button.dataset.imageAlt || '';
-        const projectTitle = button.dataset.projectTitle || '';
-        if (imageSrc) {
-          openProjectModal(imageSrc, imageAlt, projectTitle);
-        }
-      });
-    });
-
-    projectModalClose.addEventListener('click', closeProjectModal);
-    projectModalOverlay.addEventListener('click', (event) => {
-      if (event.target === projectModalOverlay) {
-        closeProjectModal();
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && projectModalOverlay.classList.contains('open')) {
-        closeProjectModal();
-      }
-    });
+    // ===== Project Modal Viewer (Removed) =====
+    // Project cards now link directly to projects instead of showing image modals
 
     // ===== Reveal on Scroll Animation =====
     const revealElements = document.querySelectorAll('.section, .hero');
