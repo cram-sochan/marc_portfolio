@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10131a"/>
+      <stop offset="100%" stop-color="#1c232c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)"/>
+  <rect x="80" y="80" width="1040" height="640" rx="48" fill="#11151d"/>
+  <rect x="120" y="120" width="760" height="40" rx="20" fill="#ffffff" opacity="0.14"/>
+  <rect x="120" y="188" width="480" height="26" rx="13" fill="#ffffff" opacity="0.08"/>
+  <rect x="120" y="252" width="920" height="420" rx="34" fill="#0c1018"/>
+  <rect x="160" y="318" width="220" height="160" rx="32" fill="#ffffff" opacity="0.08"/>
+  <rect x="404" y="318" width="620" height="160" rx="24" fill="#ffffff" opacity="0.06"/>
+  <rect x="160" y="500" width="720" height="20" rx="10" fill="#ffffff" opacity="0.06"/>
+  <rect x="160" y="544" width="540" height="20" rx="10" fill="#ffffff" opacity="0.06"/>
+  <rect x="160" y="588" width="380" height="20" rx="10" fill="#ffffff" opacity="0.06"/>
+  <rect x="436" y="350" width="80" height="80" rx="20" fill="#ffffff" opacity="0.08"/>
+  <rect x="548" y="350" width="80" height="80" rx="20" fill="#ffffff" opacity="0.08"/>
+  <rect x="660" y="350" width="80" height="80" rx="20" fill="#ffffff" opacity="0.08"/>
+  <text x="120" y="740" font-family="Inter, sans-serif" font-size="44" fill="#ffffff" opacity="0.9">Inventory System</text>
+</svg>
